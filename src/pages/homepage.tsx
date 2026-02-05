@@ -6,9 +6,9 @@ const HomePage = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[80vh] text-center p-4">
-            <div className="mb-8">
-                <WeatherWidget />
+        <div className="flex flex-col items-center justify-center min-h-[80vh] text-center p-4 pt-12">
+            <div className="mb-20">
+                <WeatherWidget compact={true} />
             </div>
             <div className={`mb-8 p-1 rounded-full border backdrop-blur-md
                 ${theme === 'dark' ? 'bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border-white/10' : 'bg-gradient-to-r from-indigo-100 to-purple-100 border-indigo-200'}

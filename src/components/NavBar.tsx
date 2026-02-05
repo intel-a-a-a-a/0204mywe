@@ -82,7 +82,7 @@ const NavLink = ({ to, children }: { to: string; children: ReactNode }) => {
     return (
         <Link
             to={to}
-            className={`px-4 py-1.5 rounded-full text-sm transition-all duration-200
+            className={`px-6 py-2 rounded-full text-base font-medium transition-all duration-200
             ${theme === 'dark'
                     ? 'text-zinc-400 hover:text-white hover:bg-white/5'
                     : 'text-zinc-500 hover:text-black hover:bg-black/5'}
