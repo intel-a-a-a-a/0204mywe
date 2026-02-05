@@ -26,6 +26,7 @@ const NavBar = () => {
                     <NavLink to="/">홈</NavLink>
                     <NavLink to="/team">팀 소개</NavLink>
                     <NavLink to="/weather">날씨</NavLink>
+                    <NavLink to="/fashion">패션 추천</NavLink>
                 </div>
 
                 {/* Right Side: CTA + Theme Toggle */}

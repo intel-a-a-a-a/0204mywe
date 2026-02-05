@@ -1,31 +1,30 @@
-import type { ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
+import axios from 'axios';
 import WeatherWidget from '../components/WeatherWidget';
 import { useTheme } from '../context/ThemeContext';
 
+interface Member {
+    id: number;
+    name: string;
+    role: string;
+    image: string;
+}
+
 const TeamPage = () => {
     const { theme } = useTheme();
-    const team = [
-        {
-            name: '강도현',
-            role: '프론트엔드 리드',
-            image: '/team/male_lead.png'
-        },
-        {
-            name: '윤서연',
-            role: 'UI/UX 디자이너',
-            image: '/team/female_designer.png'
-        },
-        {
-            name: '장민준',
-            role: '백엔드 엔지니어',
-            image: '/team/male_engineer.png'
-        },
-        {
-            name: '박지우',
-            role: '프로젝트 매니저',
-            image: '/team/female_pm.png'
-        },
-    ];
+    const [members, setMembers] = useState<Member[]>([]);
+
+    useEffect(() => {
+        const fetchMembers = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/members');
+                setMembers(response.data);
+            } catch (error) {
+                console.error("Failed to fetch team members:", error);
+            }
+        };
+        fetchMembers();
+    }, []);
 
     return (
         <div className="py-12">
@@ -40,7 +39,7 @@ const TeamPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {team.map((member) => (
+                {members.map((member) => (
                     <div key={member.name} className="group relative">
                         <div className={`absolute inset-0 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-500
                             ${theme === 'dark' ? 'bg-gradient-to-r from-indigo-500 to-purple-600' : 'bg-gradient-to-r from-indigo-400 to-purple-400'}
