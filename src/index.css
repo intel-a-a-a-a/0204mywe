@@ -5,12 +5,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: #f5f5f7;
-  /* Apple-like off-white text */
-  background-color: #000000;
-  /* Deep Black background */
-
+  /* Colors are now managed by Layout.tsx via Tailwind classes */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
